@@ -14,21 +14,22 @@
               <!-- form -->
               <div class="card basic-form">
                   <div class="card-body card-block"> 
-                    <form action="/admin/categories/create" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                  <form action="/admin/categories/<?php  echo $categoryInfo[0]->id; ?>/update" method="POST" enctype="multipart/form-data" class="form-horizontal">
                     {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="PUT">
                       <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên chuyên mục</label></div>
-                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="Tên chuyên mục" class="form-control"></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="Tên chuyên mục" class="form-control" value="<?php  echo $categoryInfo[0]->title; ?>"></div>
                       </div>
                      
                       <div class="row form-group">
-                        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                        <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="4" placeholder="Mô tả" class="form-control"></textarea></div>
+                        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Nội dung</label></div>
+                        <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="4" placeholder="Nội dung" class="form-control"><?php  echo $categoryInfo[0]->description; ?></textarea></div>
                       </div>
                       
                       <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">
-                      <i class="fa fa-dot-circle-o"></i> Tạo mới
+                      <i class="fa fa-dot-circle-o"></i> Cập nhật
                     </button>
                     <button type="reset" class="btn btn-danger btn-sm">
                       <i class="fa fa-ban"></i> Nhập lại

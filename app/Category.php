@@ -11,19 +11,19 @@ class Category extends Model
         
     } 
 
-    public function dbGetCategory($select, $id) {
-        return  DB::select('select ? from categories where id = ? ', [$select,  $id]);
-    }
-
+    
     public function dbCreateCategory($data) {
         return DB::table('categories')->insertGetId($data);
     } 
+    public function dbEditCategory($select, $id) {
+        return DB::table('categories')->select($select)->where('id', $id)->get();
+    }
 
     public function dbUpdateCategory($id, $data) {
-        return DB::table('categories')->update($data)->where('id', $id);
+        return DB::table('categories')->where('id', $id)->update($data);
     }
 
     public function dbDeleteCategory( $id) {
-        return DB::table('categories')->delete()->where('id', $id);
+        return DB::table('categories')->where('id', $id)->delete();
     }
 }

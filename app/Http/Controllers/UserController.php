@@ -40,4 +40,30 @@ class UserController extends BaseController
 
         return redirect('/admin/users?orderBy=created_at&order=DESC');
       }
+      public function editUser(Request $request) {
+        $User = new User(); // khởi tạo model
+        $id =$request->id; 
+        $select = ['id','username', 'email','password'];
+        $userInfo = $User->dbEditUser($select, $id);
+        return view('backend/users/edit', compact('userInfo'));    
+      }
+  
+      public function updateUser(Request $request) {
+        $User = new User(); // khởi tạo model
+        $id =$request->id;
+        $email =$request->email;
+        $password =$request->password;
+        $data = array();
+        $data['email'] = $email;
+        $data['password'] = $password;
+        $User->dbUpdateUser($id, $data);
+        return redirect('/admin/users/'.$id.'/edit');
+      }
+  
+      public function deleteUser(Request $request) {
+        $User = new User(); // khởi tạo model
+        $id =$request->id;
+        $User->dbDeleteUser($id);
+        return redirect('/admin/users?orderBy=created_at&order=DESC');
+      }
 }

@@ -18,7 +18,7 @@
                       <th>STT</th>
                       <th>Tiêu đề</th>
                       <th>Mô tả</th>
-                      
+                      <th>Tùy chọn</th>
                     </tr>
                   </thead>
                   
@@ -29,7 +29,13 @@
                       <td><?php  echo $category->id; ?></td>
                       <td><a href="#"><?php  echo $category->title; ?></a></td>
                       <td><?php  echo $category->description; ?></td>
-                     
+                      <td>
+                        <a href="/admin/categories/<?php echo $category->id; ?>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                      <form method="post" action="{{url('/')}}/admin/categories/<?php echo $category->id; ?>/delete" style="display: inline-block;"> 
+                      {{ csrf_field() }}
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button class="btn btn-danger" type="submit" onclick="return confirm('Bạn chắc chắn xóa?')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </form></td>
                     </tr>
                   <?php }?>
 

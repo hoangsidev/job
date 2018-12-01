@@ -11,19 +11,20 @@ class User extends Model
         
     } 
 
-    public function dbGetUser($select, $id) {
-        return  DB::select('select ? from users where id = ? ', [$select,  $id]);
-    }
-
     public function dbCreateUser($data) {
         return DB::table('users')->insertGetId($data);
     } 
 
+    public function dbEditUser($select, $id) {
+        return DB::table('users')->select($select)->where('id', $id)->get();
+        // return DB::table('users')->raw('select ? from users where id = ? ', [$select,  $id]);
+    }
+
     public function dbUpdateUser($id, $data) {
-        return DB::table('users')->update($data)->where('id', $id);
+        return DB::table('users')->where('id', $id)->update($data);
     }
 
     public function dbDeleteUser( $id) {
-        return DB::table('users')->delete()->where('id', $id);
+        return DB::table('users')->where('id', $id)->delete();
     }
 }

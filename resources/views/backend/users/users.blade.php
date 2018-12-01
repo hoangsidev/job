@@ -28,7 +28,8 @@
                       <td><?php  echo $user->email; ?></td>
                       <td>6234231</td>
                       <td> 
-                      <form method="post" action="{{url('/')}}/admin/posts/<?php echo $post->id; ?>/delete" style="display: inline-block;"> 
+                      <a href="/admin/users/<?php echo $user->id; ?>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                      <form method="post" action="{{url('/')}}/admin/users/<?php echo $user->id; ?>/delete" style="display: inline-block;"> 
                       {{ csrf_field() }}
                       <input type="hidden" name="_method" value="DELETE">
                       <button class="btn btn-danger" type="submit" onclick="return confirm('Bạn chắc chắn xóa?')"><i class="fa fa-trash" aria-hidden="true"></i></button>

@@ -19,4 +19,43 @@ class CategoryController extends BaseController
       $titlePage = 'List Categories';
       return view('backend/categories/categories', compact('listCategories', 'titlePage'));       
     }
+    public function createCategory(Request $request) {
+      $Category = new Category(); // khởi tạo model
+      $title =$request->title;
+      $description =$request->description;
+      
+      $data = array();
+      $data['title'] = $title;
+      $data['description'] = $description;
+      
+      $Category->dbCreateCategory($data);
+
+      return redirect('/admin/categories?orderBy=created_at&order=DESC');
+    }
+    public function editCategory(Request $request) {
+      $Category = new Category(); // khởi tạo model
+      $id =$request->id; 
+      $select = ['id','title', 'description'];
+      $categoryInfo = $Category->dbEditCategory($select, $id);
+      return view('backend/categories/edit', compact('categoryInfo'));    
+    }
+
+    public function updateCategory(Request $request) {
+      $Category = new Category(); // khởi tạo model
+      $id =$request->id;
+      $title =$request->title;
+      $description =$request->description;
+      $data = array();
+      $data['title'] = $title;
+      $data['description'] = $description;
+      $Category->dbUpdateCategory($id, $data);
+      return redirect('/admin/categories/'.$id.'/edit');
+    }
+
+    public function deleteCategory(Request $request) {
+      $Category = new Category(); // khởi tạo model
+      $id =$request->id;
+      $Category->dbDeleteCategory($id);
+      return redirect('/admin/categories?orderBy=created_at&order=DESC');
+    }
 }
