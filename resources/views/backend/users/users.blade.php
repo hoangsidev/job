@@ -26,7 +26,7 @@
                       <td><?php  echo $user->id; ?></td>
                       <td><a href="#"><?php  echo $user->username; ?></a></td>
                       <td><?php  echo $user->email; ?></td>
-                      <td>61</td>
+                      <td>6234231</td>
                       <td> 
                       <form method="post" action="{{url('/')}}/admin/posts/<?php echo $post->id; ?>/delete" style="display: inline-block;"> 
                       {{ csrf_field() }}
