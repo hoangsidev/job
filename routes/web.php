@@ -54,6 +54,15 @@ Route::delete('/admin/users/{id}/delete', 'UserController@deleteUser');
 
 
 // Frontend
+Route::get('/register', function () { // cái này để hiện cái fỏm nè
+    return view('frontend/users/register'); // chỗ này, vì form tạo mới ko cần dữ liệu từ DB,
+    // nên ko cần gọi vào controller, mà gọi thẳng ra giao diện để nó hiện cái form lên
+});
+
+Route::post('/register', 'UserController@registerUser'); // còn cái này để tạo nè
+// rồi sau khi người ta nhập xong thì gọi vào controller để chèn vào dữ liệu
+
+
 
 
 // End Frontend

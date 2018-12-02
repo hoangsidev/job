@@ -27,4 +27,7 @@ class User extends Model
     public function dbDeleteUser( $id) {
         return DB::table('users')->where('id', $id)->delete();
     }
+    public function dbRegisterUser($data) {
+        return DB::table('users')->insertGetId($data);
+    } 
 }

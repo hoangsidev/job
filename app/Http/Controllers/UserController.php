@@ -11,7 +11,7 @@ class UserController extends BaseController
 {
     public function getUsers(Request $request) {
       $User = new User(); // khởi tạo model
-      $limit = 2;
+      $limit = 4;
       $orderBy = $request->orderBy;
       $order = $request->order;
       $select = ['id','username', 'email'];
@@ -65,5 +65,23 @@ class UserController extends BaseController
         $id =$request->id;
         $User->dbDeleteUser($id);
         return redirect('/admin/users?orderBy=created_at&order=DESC');
+      }
+      public function registerUser(Request $request){
+        $User = new User(); // khởi tạo model
+        $username =$request->username;
+        $email =$request->email;
+        $password=$request->password;
+        $firstname=$request->firstname;
+        $lastname=$request->lastname;
+        $data = array();
+        $data['username'] = $username;
+        $data['email'] = $email;
+        $data['password'] = $password;
+        // $data['first_name'] = $firstname;
+        // $data['last_name'] = $lastname;
+        $User->dbRegisterUser($data);
+
+        return redirect('/admin/users?orderBy=created_at&order=DESC');
+
       }
 }

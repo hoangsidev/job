@@ -26,7 +26,7 @@
                       <td><?php  echo $user->id; ?></td>
                       <td><a href="#"><?php  echo $user->username; ?></a></td>
                       <td><?php  echo $user->email; ?></td>
-                      <td>6234231</td>
+                      <td><áđâsd</td>
                       <td> 
                       <a href="/admin/users/<?php echo $user->id; ?>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                       <form method="post" action="{{url('/')}}/admin/users/<?php echo $user->id; ?>/delete" style="display: inline-block;"> 
