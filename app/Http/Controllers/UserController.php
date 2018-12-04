@@ -77,11 +77,41 @@ class UserController extends BaseController
         $data['username'] = $username;
         $data['email'] = $email;
         $data['password'] = $password;
-        // $data['first_name'] = $firstname;
-        // $data['last_name'] = $lastname;
+        $data['first_name'] = $firstname;
+        $data['last_name'] = $lastname;
         $User->dbRegisterUser($data);
 
         return redirect('/admin/users?orderBy=created_at&order=DESC');
 
+      }
+      public function loginUser(Request $request)
+      {
+        $User = new User(); // khởi tạo model
+        $username =$request->username;
+        $password=$request->password;
+        $data = array();
+        $data['username'] = $username;
+        $data['password'] = $password;
+        $User->dbLoginUser($data);
+        if($User==1)
+        {
+
+        }
+        else
+        {
+
+        }
+        return redirect('/admin/users?orderBy=created_at&order=DESC');
+      }
+
+
+      public function informationUser(Request $request) {
+        $User = new User(); // khởi tạo model
+        $id =$request->id; 
+        $select = ['id','username', 'email','password'];
+        $information = $User->dbInformationUser($select, $id);
+        return view('frontend/users/information', compact('information'));   
+        
+        
       }
 }

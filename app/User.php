@@ -30,4 +30,11 @@ class User extends Model
     public function dbRegisterUser($data) {
         return DB::table('users')->insertGetId($data);
     } 
+    public function dbLoginUser($data) {
+        return DB::table('users')->select($data);
+    }
+    public function dbInformationUser($select, $id) {
+        return DB::table('users')->select($select)->where('id', $id)->get();
+        
+    }
 }
