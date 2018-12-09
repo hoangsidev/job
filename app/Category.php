@@ -10,8 +10,6 @@ class Category extends Model
         return DB::table('categories')->select($select)->orderBy($orderBy, $order)->paginate($limit);
         
     } 
-
-    
     public function dbCreateCategory($data) {
         return DB::table('categories')->insertGetId($data);
     } 
@@ -26,4 +24,9 @@ class Category extends Model
     public function dbDeleteCategory( $id) {
         return DB::table('categories')->where('id', $id)->delete();
     }
+
+    public function dbGetCategoriesByTaxonomyId($taxonomy_id, $select, $limit, $orderBy, $order) {
+        return DB::table('categories')->select($select)->where('taxonomy_id', $taxonomy_id)->orderBy($orderBy, $order)->paginate($limit);
+      }
+  
 }

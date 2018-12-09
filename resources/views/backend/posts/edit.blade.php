@@ -16,7 +16,7 @@
                   <div class="card-body card-block"> 
 
 
-                    <form action="/admin/posts/<?php  echo $postInfo[0]->id; ?>/update" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="/admin/posts/<?php  echo $postInfo[0]->id; ?>/update" method="POST" enctype="multipart/form-data" class="form-horizontal"  id="formData">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="PUT">
                       <div class="row form-group">
@@ -28,19 +28,35 @@
                         <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Nội dung</label></div>
                         <div class="col-12 col-md-9"><textarea name="content" id="textarea-input" rows="4" placeholder="Nội dung" class="form-control"><?php  echo $postInfo[0]->content; ?></textarea></div>
                       </div>
+                      
+
+                 
+
+
+                     
+                     <?php $i =  1; foreach($resultTaxonomiesCategories as $taxonomyItem) { ?>
                       <div class="row form-group">
-                        <div class="col col-md-3"><label for="select" class=" form-control-label">Chuyên mục</label></div>
+                        <div class="col col-md-3"><label for="select" class=" form-control-label"><?php echo $taxonomyItem->title; ?></label></div>
                         <div class="col-12 col-md-9">
-                          <select name="select" id="select" class="form-control">
-                            <option value="0">Vui lòng chọn chuyên mục</option>
-                            <option value="1">Option #1</option>
-                            <option value="2">Option #2</option>
-                            <option value="3">Option #3</option>
+                        <?php $categories =  $taxonomyItem->categories; ?>
+                          <select id="<?php echo 'cat'.$i; ?>" class="form-control" required>
+                            <option value="">Vui lòng chọn <?php echo $taxonomyItem->title; ?></option>
+                            <?php foreach($categories as $category) { ?>
+                            <option value="<?php echo $category->id; ?>" <?php if(in_array($category->id, $catOfPost)) { echo 'selected'; } ?>><?php echo $category->title; ?></option> 
+                            <?php }?>
                           </select>
+                         
                         </div>
                       </div>
+
+
+                   <?php  $i++; }?>
+
+ <input type="hidden"  name="categories" id="categories" >
+
+
                       <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-sm">
+                    <button type="submit" class="btn btn-primary btn-sm"  id="btnSubmit">
                       <i class="fa fa-dot-circle-o"></i> Cập nhật
                     </button>
                     <button type="reset" class="btn btn-danger btn-sm">

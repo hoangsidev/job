@@ -31,8 +31,9 @@
         <img src="{{url('/')}}/frontend/assets/img/logo.png" alt="">
         <h1>Đăng nhập</h1>
 
-        <form action="#">
-
+          <span style="color:red;"><?php echo $error;  ?></span>
+        <form action="/login" method="post">
+        {{ csrf_field() }}
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>

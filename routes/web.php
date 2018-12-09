@@ -11,16 +11,14 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/admin', function () {
+    return redirect('/admin/posts?orderBy=created_at&order=DESC');
+});
 
 
 //  Backend
 Route::get('/admin/posts', 'PostController@getPosts');
-Route::get('/admin/posts/create', function () {
-    return view('backend/posts/create');
-});
+Route::get('/admin/posts/create', 'PostController@formCreatePost');
 Route::post('/admin/posts/create', 'PostController@createPost');
 Route::get('/admin/posts/{id}/edit', 'PostController@editPost');
 Route::put('/admin/posts/{id}/update', 'PostController@updatePost');
@@ -28,9 +26,7 @@ Route::delete('/admin/posts/{id}/delete', 'PostController@deletePost');
 //end posts
 
 Route::get('/admin/categories', 'CategoryController@getCategories');
-Route::get('/admin/categories/create', function () {
-    return view('backend/categories/create');
-});
+Route::get('/admin/categories/create', 'CategoryController@formCreateCategory');
 Route::post('/admin/categories/create', 'CategoryController@createCategory');
 Route::get('/admin/categories/{id}/edit', 'CategoryController@editCategory');
 Route::put('/admin/categories/{id}/update', 'CategoryController@updateCategory');
@@ -62,7 +58,8 @@ Route::post('/register', 'UserController@registerUser'); // còn cái này để
 // rồi sau khi người ta nhập xong thì gọi vào controller để chèn vào dữ liệu
 //End register
 Route::get('/login', function () {
-    return view('frontend/users/login');
+    $error = '';
+    return view('frontend/users/login', compact('error'));
 });
 Route::post('/login', 'UserController@loginUser');
 //End login
@@ -77,6 +74,8 @@ Route::get('/information', function () {
     return view('frontend/users/information');
 });
 Route::get('/information/{id}', 'UserController@informationUser');
+Route::put('/information/{id}/update', 'UserController@updateInformation');
 //End information
 
+Route::get('/', 'HomeController@index');
 // End Frontend

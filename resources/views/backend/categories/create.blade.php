@@ -18,12 +18,25 @@
                     {{ csrf_field() }}
                       <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên chuyên mục</label></div>
-                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="Tên chuyên mục" class="form-control"></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="title" placeholder="Tên chuyên mục" class="form-control" required></div>
                       </div>
                      
                       <div class="row form-group">
                         <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
                         <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="4" placeholder="Mô tả" class="form-control"></textarea></div>
+                      </div>
+
+                       <div class="row form-group">
+                        <div class="col col-md-3"><label for="select" class=" form-control-label">Phân loại chuyên mục</label></div>
+                        <div class="col-12 col-md-9">
+                          <select name="taxonomy_id" id="select" class="form-control" required>
+                            <option value="">Vui lòng phân loại chuyên mục</option>
+                            <?php foreach($listTaxonomies as $taxonomy) { ?>
+                            <option value="<?php  echo $taxonomy->id; ?>"><?php  echo $taxonomy->title; ?></option> 
+                            <?php }?>
+
+                          </select>
+                        </div>
                       </div>
                       
                       <div class="card-footer">

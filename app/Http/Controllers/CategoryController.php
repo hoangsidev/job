@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 use App\Category;
+use App\Taxonomy;
 use View;
 
 
@@ -11,7 +12,7 @@ class CategoryController extends BaseController
 {
     public function getCategories(Request $request) {
       $Category = new Category(); // khởi tạo model
-      $limit = 2;
+      $limit = 10;
       $orderBy = $request->orderBy;
       $order = $request->order;
       $select = ['id','title','description'];
@@ -19,17 +20,26 @@ class CategoryController extends BaseController
       $titlePage = 'List Categories';
       return view('backend/categories/categories', compact('listCategories', 'titlePage'));       
     }
+
+    public function formCreateCategory(Request $request) {
+      $Taxonomy = new Taxonomy();
+      $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
+      return view('backend/categories/create', compact('listTaxonomies'));   
+    }
+
+   
+
     public function createCategory(Request $request) {
       $Category = new Category(); // khởi tạo model
       $title =$request->title;
       $description =$request->description;
+      $taxonomy_id =$request->taxonomy_id;
       
       $data = array();
       $data['title'] = $title;
       $data['description'] = $description;
-      
+      $data['taxonomy_id'] = $taxonomy_id;
       $Category->dbCreateCategory($data);
-
       return redirect('/admin/categories?orderBy=created_at&order=DESC');
     }
     public function editCategory(Request $request) {

@@ -16,6 +16,7 @@
                       <th>STT</th>
                       <th>Username</th>
                       <th>Email</th>
+                      <th>Họ đệm</th>
                       <th>Tên</th> 
                       <th>Tùy chọn</th>
                     </tr>
@@ -26,7 +27,8 @@
                       <td><?php  echo $user->id; ?></td>
                       <td><a href="#"><?php  echo $user->username; ?></a></td>
                       <td><?php  echo $user->email; ?></td>
-                      <td><áđâsd</td>
+                      <td><?php  echo $user->first_name; ?></td>
+                      <td><?php  echo $user->last_name; ?></td>
                       <td> 
                       <a href="/admin/users/<?php echo $user->id; ?>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                       <form method="post" action="{{url('/')}}/admin/users/<?php echo $user->id; ?>/delete" style="display: inline-block;"> 

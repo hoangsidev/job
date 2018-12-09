@@ -17,6 +17,7 @@
                   <div class="card-body card-block">
                     <form action="/admin/users/<?php  echo $userInfo[0]->id; ?>/update" method="post" class="example-form">
                     {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="PUT">
                       <div class="form-group">
                         <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user"></i></div>
@@ -27,6 +28,18 @@
                         <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
                           <input type="email" id="email" name="email" placeholder="Email" class="form-control" value="<?php  echo $userInfo[0]->email; ?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                          <input type="text" id="firstname" name="firstname" placeholder="Họ đệm" class="form-control" value="<?php  echo $userInfo[0]->first_name; ?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                          <input type="text" id="lastname" name="lastname" placeholder="Tên" class="form-control" value="<?php  echo $userInfo[0]->last_name; ?>">
                         </div>
                       </div>
                       <div class="form-group">

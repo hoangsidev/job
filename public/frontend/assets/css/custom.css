@@ -1,1 +1,6 @@
 .demo-btn-margin .btn{margin-bottom:6px}
+
+.header-job-search .input-keyword, .header-job-search .input-location {
+    position: relative;
+    width: 80% !important;
+}

@@ -31,6 +31,18 @@
                       </div>
                       <div class="form-group">
                         <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                          <input type="text" id="firstname" name="firstname" placeholder="Họ đệm" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                          <input type="text" id="lastname" name="lastname" placeholder="Tên" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
                           <input type="password" id="password" name="password" placeholder="Password" class="form-control">
                         </div>

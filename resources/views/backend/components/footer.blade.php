@@ -19,11 +19,25 @@
   <script src="{{url('/')}}/assets/js/plugins.js"></script>
   <script src="{{url('/')}}/assets/js/tables/jquery.dataTables.min.js"></script>
   <script src="{{url('/')}}/assets/js/tables/dataTables.bootstrap4.min.js"></script>
-
   <script src="{{url('/')}}/assets/js/main.js"></script>
-
  
+ <script>
+
+ $('#btnSubmit').on('click', function(e) {
+   e.preventDefault();
+   var categoriesValue = [];
+    <?php $i =  1; foreach($resultTaxonomiesCategories as $taxonomyItem) { ?>
+    categoriesValue.push($('#cat<?php echo $i; ?>').val());
+    <?php  $i++; }?>
+    $('#categories').val(categoriesValue); 
+    $('#formData').submit();
+});
+
+
   
+ 
+</script>
+
 
 </body>
  

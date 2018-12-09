@@ -8,7 +8,7 @@
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>Thông tin người dùng</title>
+    <title>Chỉnh sửa thông tin</title>
 
     <!-- Styles -->
     <link href="{{url('/')}}/frontend/assets/css/app.min.css" rel="stylesheet">
@@ -26,9 +26,11 @@
     <main>
       <div class="login-block">
         <img src="{{url('/')}}/frontend/assets/img/logo.png" alt="">
-        <h1>Thông tin người dùng</h1>
+        <h1>Chỉnh sửa thông tin</h1>
 
-      
+        <form action="/information/<?php  echo $information[0]->id; ?>/update" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" name="_method" value="PUT">
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
@@ -39,14 +41,14 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Họ đệm" value="<?php  echo $information[0]->first_name; ?>" readonly>
+              <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Họ đệm" value="<?php  echo $information[0]->first_name; ?>">
             </div>
           </div>
           <hr class="hr-xs">
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Tên" value="<?php  echo $information[0]->last_name; ?>" readonly>
+              <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Tên" value="<?php  echo $information[0]->last_name; ?>">
             </div>
           </div>
 
@@ -55,7 +57,7 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-email"></i></span>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Địa chỉ email" value="<?php  echo $information[0]->email; ?>" readonly>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Địa chỉ email" value="<?php  echo $information[0]->email; ?>">
             </div>
           </div>
           
@@ -64,12 +66,13 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-unlock"></i></span>
-              <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" value="<?php  echo $information[0]->password; ?>" readonly>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" value="<?php  echo $information[0]->password; ?>">
             </div>
           </div>
 
-          <a class="btn btn-primary btn-block" href="/information/<?php  echo $information[0]->id; ?>/edit" >Chỉnh sửa thông tin</a>
+          <button class="btn btn-primary btn-block" type="submit">Cập nhật</button>
 
+        </form>
       </div>      
     </main>
     <!-- Scripts -->

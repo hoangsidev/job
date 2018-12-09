@@ -4,6 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 use App\Post;
+use App\Category;
+use App\Taxonomy;
+use App\Relationship;
 use View;
 
 
@@ -19,27 +22,80 @@ class PostController extends BaseController
       return view('backend/posts/posts', compact('listPosts'));       
     }
 
+    public function formCreatePost(Request $request) {
+      $Post = new Post();
+      $Taxonomy = new Taxonomy();
+      $Category = new Category();
+      $resultTaxonomiesCategories = array();
+      $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
+      foreach($listTaxonomies as $taxonomy) {
+        $listCategories =  $Category->dbGetCategoriesByTaxonomyId($taxonomy->id, ['id', 'title'], '1000', 'title', 'DESC');  
+        $taxonomy->categories = $listCategories;
+        array_push($resultTaxonomiesCategories, $taxonomy);
+      }
+
+      return view('backend/posts/create', compact('resultTaxonomiesCategories'));  
+    }
+
     public function createPost(Request $request) {
       $Post = new Post(); // khởi tạo model
-      $title =$request->title;
-      $content =$request->content;
+      $Relationship = new Relationship();
+      $title = $request->title;
+      $content = $request->content;
+      $categories = $request->categories; // 7,8,9 
       $data = array();
       $data['title'] = $title;
       $data['content'] = $content;
-      $postInfo = $Post->dbCreatePost($data);
-      return redirect('/admin/posts/'.$postInfo.'/edit');
+      $postId = $Post->dbCreatePost($data);
+
+
+      $arrCategories = explode(",",$categories);
+      foreach($arrCategories as $categoryId) {
+        if($categoryId!='') {
+          $dataRelationship = array();
+          $dataRelationship['post_id'] = $postId;
+          $dataRelationship['category_id'] = $categoryId;
+          $Relationship->dbCreateRelationship($dataRelationship);
+        }
+      }
+      return redirect('/admin/posts/'.$postId.'/edit');
     }
+
+
 
     public function editPost(Request $request) {
       $Post = new Post(); // khởi tạo model
+      $Taxonomy = new Taxonomy();
+      $Category = new Category();
+      $Relationship = new Relationship();
+
       $id =$request->id; 
       $select = ['id','title', 'content'];
       $postInfo = $Post->dbEditPost($select, $id);
-      return view('backend/posts/edit', compact('postInfo'));    
+
+      $categoriesOfPost = $Relationship->dbGetCategoriesOfPostByPostId($postInfo[0]->id);
+
+      $catOfPost = array();
+      foreach($categoriesOfPost as $cat) {
+        array_push($catOfPost, $cat->category_id);
+      }
+     
+      $resultTaxonomiesCategories = array();
+      $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
+      foreach($listTaxonomies as $taxonomy) {
+        $listCategories =  $Category->dbGetCategoriesByTaxonomyId($taxonomy->id, ['id', 'title'], '1000', 'title', 'DESC');  
+        $taxonomy->categories = $listCategories;
+        array_push($resultTaxonomiesCategories, $taxonomy);
+      }
+
+      return view('backend/posts/edit', compact('postInfo', 'resultTaxonomiesCategories', 'catOfPost'));    
     }
 
     public function updatePost(Request $request) {
       $Post = new Post(); // khởi tạo model
+      $Taxonomy = new Taxonomy();
+      $Category = new Category();
+      $Relationship = new Relationship();
       $id =$request->id;
       $title =$request->title;
       $content =$request->content;
@@ -47,6 +103,21 @@ class PostController extends BaseController
       $data['title'] = $title;
       $data['content'] = $content;
       $Post->dbUpdatePost($id, $data);
+
+      $Relationship->dbDeleteRelationship($id);
+      $categories = $request->categories;
+      $arrCategories = explode(",",$categories);
+      foreach($arrCategories as $categoryId) {
+        
+        if($categoryId!='') {
+          $dataRelationship = array();
+          $dataRelationship['post_id'] = $id;
+          $dataRelationship['category_id'] = $categoryId;
+          $Relationship->dbCreateRelationship($dataRelationship);
+        }
+      }
+
+
       return redirect('/admin/posts/'.$id.'/edit');
     }
 
