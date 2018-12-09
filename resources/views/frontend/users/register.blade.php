@@ -36,21 +36,21 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" id="username" name="username" class="form-control" placeholder="Tên tài khoản">
+              <input type="text" id="username" name="username" class="form-control" placeholder="Tên tài khoản" required>
             </div>
           </div>
           <hr class="hr-xs">
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Họ đệm">
+              <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Họ đệm" required>
             </div>
           </div>
           <hr class="hr-xs">
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Tên">
+              <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Tên" required>
             </div>
           </div>
 
@@ -59,7 +59,7 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-email"></i></span>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Địa chỉ email">
+              <input type="email" id="email" name="email" class="form-control" placeholder="Địa chỉ email" required>
             </div>
           </div>
           
@@ -68,7 +68,7 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-unlock"></i></span>
-              <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu">
+              <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" required>
             </div>
           </div>
 

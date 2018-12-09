@@ -89,7 +89,7 @@ class UserController extends BaseController
         $data['last_name'] = $lastname;
         $User->dbRegisterUser($data);
 
-        return redirect('/admin/users?orderBy=created_at&order=DESC');
+        return redirect('/');
 
       }
       public function loginUser(Request $request)

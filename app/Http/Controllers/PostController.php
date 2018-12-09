@@ -14,10 +14,10 @@ class PostController extends BaseController
 {
     public function getPosts(Request $request) {
       $Post = new Post(); // khởi tạo model
-      $limit = 2;
+      $limit = 5;
       $orderBy = $request->orderBy;
       $order = $request->order;
-      $select = ['id','title', 'created_at'];
+      $select = ['id','title','created_at'];
       $listPosts =  $Post->dbGetPosts($select, $limit, $orderBy, $order);
       return view('backend/posts/posts', compact('listPosts'));       
     }
@@ -126,5 +126,24 @@ class PostController extends BaseController
       $id =$request->id;
       $Post->dbDeletePost($id);
       return redirect('/admin/posts?orderBy=created_at&order=DESC');
+    }
+    public function searchPosts(Request $request) {
+      $Post = new Post();
+      $title = $request->title;
+      $content = $request->content;
+      $limit = 5;
+      $orderBy = $request->orderBy;
+      $order = $request->order;
+    
+      $listPosts =  $Post->dbGetPosts($title, $content, 5, 'created_at', 'DESC');
+      return view('frontend/posts/search', compact('listPosts'));       
+    }
+    public function detailPosts(Request $request) {
+      $Post = new Post();
+      
+
+    
+      $listPosts =  $Post->dbGetPosts(['id','company','title','content', 'salary','created_at'], 5, 'created_at', 'DESC');
+      return view('frontend/posts/detail', compact('listPosts'));       
     }
 }

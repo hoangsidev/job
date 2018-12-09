@@ -17,7 +17,7 @@ class HomeController extends BaseController
       $Category = new Category();
 
     
-      $listPosts =  $Post->dbGetPosts(['id','title', 'created_at'], 5, 'created_at', 'DESC');
+      $listPosts =  $Post->dbGetPosts(['id','company','title', 'salary','created_at'], 5, 'created_at', 'DESC');
       return view('frontend/index', compact('listPosts'));       
     }
 

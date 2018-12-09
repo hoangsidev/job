@@ -20,7 +20,7 @@
   <script src="{{url('/')}}/assets/js/tables/jquery.dataTables.min.js"></script>
   <script src="{{url('/')}}/assets/js/tables/dataTables.bootstrap4.min.js"></script>
   <script src="{{url('/')}}/assets/js/main.js"></script>
- 
+ <?php if(!empty($resultTaxonomiesCategories)) { ?>
  <script>
 
  $('#btnSubmit').on('click', function(e) {
@@ -34,7 +34,7 @@
 });
 
 
-  
+   <?php } ?>
  
 </script>
 
