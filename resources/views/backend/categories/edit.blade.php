@@ -26,7 +26,18 @@
                         <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Nội dung</label></div>
                         <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="4" placeholder="Nội dung" class="form-control"><?php  echo $categoryInfo[0]->description; ?></textarea></div>
                       </div>
-                      
+                      <div class="row form-group">
+                        <div class="col col-md-3"><label for="select" class=" form-control-label">Phân loại chuyên mục</label></div>
+                        <div class="col-12 col-md-9">
+                          <select name="taxonomy_id" id="select" class="form-control" required>
+                            <option value="">Vui lòng phân loại chuyên mục</option>
+                            <?php foreach($categoryInfo as $category) { ?>
+                            <option value="<?php  echo $category->id; ?>"><?php  echo $category->title; ?></option> 
+                            <?php }?>
+
+                          </select>
+                        </div>
+                      </div>
                       <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">
                       <i class="fa fa-dot-circle-o"></i> Cập nhật

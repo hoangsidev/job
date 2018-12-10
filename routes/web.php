@@ -74,7 +74,7 @@ Route::get('/information', function () {
     return view('frontend/users/information');
 });
 Route::get('/information/{id}', 'UserController@informationUser');
-Route::put('/information/{id}/update', 'UserController@updateInformation');
+//Route::put('/information/{id}/update', 'UserController@updateInformation');
 //End information
 
 Route::get('/search', function () {
@@ -86,7 +86,12 @@ Route::get('/search', 'PostController@searchPosts');
 Route::get('/detail', function () {
     return view('frontend/posts/detail');
 });
-Route::get('/detail', 'PostController@detailPosts');
+Route::get('/detail/{id}', 'PostController@detailPosts');
 //End detail
+
+Route::get('/introduce', function () {
+    return view('frontend/introduce');
+});
+//End Introduce
 Route::get('/', 'HomeController@index');
 // End Frontend

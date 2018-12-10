@@ -18,17 +18,17 @@
       <section class="no-padding-top bg-alt">
         <div class="container">
           <div class="row item-blocks-condensed">
-
-            <div class="col-xs-12">
+          <div class="col-xs-12">
               <br>
-              <h5>We found <strong>357</strong> matches, you're watching <i>10</i> to <i>20</i></h5>
+              <h5>Đây là kết quả tìm kiếm với từ khóa của bạn!</h5>
             </div>
+            
 
 
             <?php foreach($listPosts as $post) { ?>
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="/detail">
+              <a class="item-block" href="/detail/<?php echo $post->id; ?>">
                 <header>
                   <img src="{{url('/')}}/frontend/assets/img/logo-google.jpg" alt="">
                   <div class="hgroup">
@@ -48,7 +48,7 @@
 
           </div>
 
-
+{{ $listPosts->appends(request()->query())->links() }}
           <!-- Page navigation -->
           <nav class="text-center">
             <ul class="pagination">

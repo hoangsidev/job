@@ -27,4 +27,13 @@ class Post extends Model
     public function dbDeletePost( $id) {
         return DB::table('posts')->where('id', $id)->delete();
     }
+    public function dbSearchPosts($searchItem, $limit, $orderBy, $order) {
+        return DB::table('posts')->select()->where('title','LIKE','%'.$searchItem.'%')->orWhere('content','LIKE','%'.$searchItem.'%')->orderBy($orderBy, $order)->paginate($limit);
+        
+    }
+    public function dbDetailPosts($select, $id) {
+        return DB::table('posts')->select($select)->where('id', $id)->get();
+        
+    }
+    
 }

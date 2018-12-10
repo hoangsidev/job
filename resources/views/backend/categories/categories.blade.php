@@ -27,7 +27,7 @@
                     <?php foreach($listCategories as $category) { ?>
                     <tr>
                       <td><?php  echo $category->id; ?></td>
-                      <td><a href="#"><?php  echo $category->title; ?></a></td>
+                      <td><a href="/admin/categories/<?php echo $category->id; ?>/edit"><?php  echo $category->title; ?></a></td>
                       <td><?php  echo $category->description; ?></td>
                       <td>
                         <a href="/admin/categories/<?php echo $category->id; ?>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

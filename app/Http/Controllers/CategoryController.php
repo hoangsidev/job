@@ -26,7 +26,7 @@ class CategoryController extends BaseController
       $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
       return view('backend/categories/create', compact('listTaxonomies'));   
     }
-
+    
    
 
     public function createCategory(Request $request) {
@@ -44,8 +44,9 @@ class CategoryController extends BaseController
     }
     public function editCategory(Request $request) {
       $Category = new Category(); // khởi tạo model
-      $id =$request->id; 
-      $select = ['id','title', 'description'];
+      $id =$request->id;
+      $taxonomy_id =$request->taxonomy_id;
+      $select = ['id','title', 'description','taxonomy_id'];
       $categoryInfo = $Category->dbEditCategory($select, $id);
       return view('backend/categories/edit', compact('categoryInfo'));    
     }

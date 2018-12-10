@@ -129,21 +129,17 @@ class PostController extends BaseController
     }
     public function searchPosts(Request $request) {
       $Post = new Post();
-      $title = $request->title;
-      $content = $request->content;
-      $limit = 5;
-      $orderBy = $request->orderBy;
-      $order = $request->order;
-    
-      $listPosts =  $Post->dbGetPosts($title, $content, 5, 'created_at', 'DESC');
-      return view('frontend/posts/search', compact('listPosts'));       
+      $searchItem = $request->search;
+      $listPosts =  $Post->dbSearchPosts($searchItem, 10, 'created_at', 'DESC');
+      return view('frontend/posts/search', compact('listPosts'));  
+      
     }
     public function detailPosts(Request $request) {
       $Post = new Post();
-      
-
-    
-      $listPosts =  $Post->dbGetPosts(['id','company','title','content', 'salary','created_at'], 5, 'created_at', 'DESC');
-      return view('frontend/posts/detail', compact('listPosts'));       
+      $id =$request->id;
+      $select=['id','company','title','content', 'salary','created_at'];
+      $detailPost =  $Post->dbDetailPosts($select,$id);
+      return view('frontend/posts/detail', compact('detailPost'));       
     }
+    
 }

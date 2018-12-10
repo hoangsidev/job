@@ -1,17 +1,17 @@
 @include('frontend.components.header')
     <!-- Page header -->
-    <?php foreach($listPosts as $post) { ?>
+    
     <header class="page-header bg-img size-lg" style="background-image: url({{url('/')}}/frontend/assets/img/bg-banner2.jpg)">
       <div class="container">
         <div class="header-detail">
           <img class="logo" src="{{url('/')}}/frontend/assets/img/logo-google.jpg" alt="">
           <div class="hgroup">
-            <h1><?php  echo $post->title; ?></h1>
-            <h3><a href="#"><?php  echo $post->company; ?></a></h3>
+            <h1><?php  echo $detailPost[0]->title; ?></h1>
+            <h3><a href="#"><?php  echo $detailPost[0]->company; ?></a></h3>
           </div>
           <time datetime="2016-03-03 20:00">2 days ago</time>
           <hr>
-          <p class="lead"><?php  echo $post->content; ?></p>
+          <p class="lead"><?php  echo $detailPost[0]->content; ?></p>
 
           <ul class="details cols-3">
             <li>
@@ -26,7 +26,7 @@
 
             <li>
               <i class="fa fa-money"></i>
-              <span><?php  echo $post->salary; ?>$ / tháng</span>
+              <span><?php  echo $detailPost[0]->salary; ?>$ / tháng</span>
             </li>
 
             <li>
@@ -111,5 +111,5 @@
 
     </main>
     <!-- END Main container -->
-    <?php }?>
+    
 @include('frontend.components.footer')

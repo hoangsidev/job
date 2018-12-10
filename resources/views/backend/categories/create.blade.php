@@ -26,7 +26,7 @@
                         <div class="col-12 col-md-9"><textarea name="description" id="textarea-input" rows="4" placeholder="Mô tả" class="form-control"></textarea></div>
                       </div>
 
-                       <div class="row form-group">
+                      <div class="row form-group">
                         <div class="col col-md-3"><label for="select" class=" form-control-label">Phân loại chuyên mục</label></div>
                         <div class="col-12 col-md-9">
                           <select name="taxonomy_id" id="select" class="form-control" required>

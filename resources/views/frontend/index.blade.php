@@ -10,7 +10,7 @@
           <br><br><br>
           <form action="/search" method="GET" class="header-job-search">
             <div class="input-keyword">
-              <input type="text" name="search" class="form-control" placeholder="Tên công việc, vị trí, kỹ năng,...">
+              <input type="text" name="search" class="form-control" placeholder="Tên công việc, vị trí, kỹ năng,..." required>
             </div>
 
             <!-- <div class="input-location">
@@ -48,7 +48,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="/detail">
+              <a class="item-block" href="/detail/<?php echo $post->id; ?>">
                 <header>
                   <img src="assets/img/logo-google.jpg" alt="">
                   <div class="hgroup">
@@ -70,7 +70,7 @@
           </div>
 
           <br><br>
-          <p class="text-center"><a class="btn btn-info" href="job-list.html">Xem thêm</a></p>
+          <p class="text-center"><a class="btn btn-info" href="/search">Xem thêm</a></p>
         </div>
       </section>
       <!-- END Recent jobs -->
