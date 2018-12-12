@@ -103,7 +103,8 @@ class UserController extends BaseController
 
       
         if(count($userInfo) > 0) {
-          return redirect('/information/'.$userInfo[0]->id);
+          return redirect('/');
+          //return redirect('/information/'.$userInfo[0]->id);
         }  else {
           $error = 'Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại!';
           return view('frontend/users/login', compact('error'));  

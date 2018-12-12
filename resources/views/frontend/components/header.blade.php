@@ -62,6 +62,9 @@
           <li>
             <a href="/introduce">Giới thiệu</a>
           </li>
+          <li>
+            <a href="/postemployer">Đăng tin nhà tuyển dụng</a>
+          </li>
           
         </ul>
         <!-- END Navigation menu -->

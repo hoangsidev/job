@@ -66,7 +66,7 @@
 
       <div class="login-links">
         <a class="pull-left" href="user-forget-pass.html">Quên mật khẩu?</a>
-        <a class="pull-right" href="user-register.html">Tạo tài khoản</a>
+        <a class="pull-right" href="/register">Tạo tài khoản</a>
       </div>
 
     </main>

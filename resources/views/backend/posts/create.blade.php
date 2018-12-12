@@ -27,7 +27,7 @@
                       </div>
 
                      
-   <?php $i =  1; foreach($resultTaxonomiesCategories as $taxonomyItem) { ?>
+                    <?php $i =  1; foreach($resultTaxonomiesCategories as $taxonomyItem) { ?>
                       <div class="row form-group">
                         <div class="col col-md-3"><label for="select" class=" form-control-label"><?php echo $taxonomyItem->title; ?></label></div>
                         <div class="col-12 col-md-9">

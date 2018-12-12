@@ -66,7 +66,24 @@
     <!-- Scripts -->
     <script src="{{url('/')}}/frontend/assets/js/app.min.js"></script>
     <script src="{{url('/')}}/frontend/assets/js/custom.js"></script>
-    
+    <?php if(!empty($resultTaxonomiesCategories)) { ?>
+ <script>
+
+ $('#btnSubmit').on('click', function(e) {
+   e.preventDefault();
+   var categoriesValue = [];
+    <?php $i =  1; foreach($resultTaxonomiesCategories as $taxonomyItem) { ?>
+    categoriesValue.push($('#cat<?php echo $i; ?>').val());
+    <?php  $i++; }?>
+    $('#categories').val(categoriesValue); 
+    $('#formData').submit();
+});
+
+
+   <?php } ?>
+ 
+</script>
+
   </body>
 
 </html>

@@ -94,4 +94,11 @@ Route::get('/introduce', function () {
 });
 //End Introduce
 Route::get('/', 'HomeController@index');
+
+Route::get('/postemployer', function () {
+    return view('frontend/posts/postemployer');
+});
+Route::get('/postemployer', 'PostController@formCreatePostEmployer');
+Route::post('/postemployer', 'PostController@createPostEmployer');
+//End postEmployer
 // End Frontend

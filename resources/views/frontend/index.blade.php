@@ -2,6 +2,7 @@
 @include('frontend.components.header')
     <!-- Site header -->
     <header class="site-header size-lg text-center" style="background-image: url({{url('/')}}/frontend/assets/img/bg-banner1.jpg)">
+
       <div class="container">
         <div class="col-xs-12">
           <br><br>

@@ -137,9 +137,54 @@ class PostController extends BaseController
     public function detailPosts(Request $request) {
       $Post = new Post();
       $id =$request->id;
-      $select=['id','company','title','content', 'salary','created_at'];
+      $select=['id','company','title','content','address', 'salary','created_at'];
       $detailPost =  $Post->dbDetailPosts($select,$id);
       return view('frontend/posts/detail', compact('detailPost'));       
     }
     
+    public function formCreatePostEmployer(Request $request) {
+      $Post = new Post();
+      $Taxonomy = new Taxonomy();
+      $Category = new Category();
+      $resultTaxonomiesCategories = array();
+      $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
+      foreach($listTaxonomies as $taxonomy) {
+        $listCategories =  $Category->dbGetCategoriesByTaxonomyId($taxonomy->id, ['id', 'title'], '1000', 'title', 'DESC');  
+        $taxonomy->categories = $listCategories;
+        array_push($resultTaxonomiesCategories, $taxonomy);
+      }
+
+      return view('/frontend/posts/postemployer', compact('resultTaxonomiesCategories'));  
+    }
+
+    public function createPostEmployer(Request $request) {
+      $Post = new Post(); // khởi tạo model
+      $Relationship = new Relationship();
+      $title = $request->title;
+      $company = $request->company;
+      $content = $request->content;
+      $address = $request->address;
+      $salary = $request->salary;
+      $categories = $request->categories;
+      $data = array();
+      $data['title'] = $title;
+      $data['company'] = $company;
+      $data['content'] = $content;
+      $data['address'] = $address;
+      $data['salary'] = $salary;
+      $postId = $Post->dbCreatePost($data);
+
+
+      $arrCategories = explode(",",$categories);
+      foreach($arrCategories as $categoryId) {
+        if($categoryId!='') {
+          $dataRelationship = array();
+          $dataRelationship['post_id'] = $postId;
+          $dataRelationship['category_id'] = $categoryId;
+          $Relationship->dbCreateRelationship($dataRelationship);
+        }
+      }
+      return redirect('/postemployer/'.$postId.'/edit');
+    }
+
 }

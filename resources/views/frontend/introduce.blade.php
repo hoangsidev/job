@@ -1,6 +1,6 @@
 @include('frontend.components.header')
     <!-- Site header -->
-    <header class="page-header bg-img size-lg" style="background-image: url(assets/img/bg-banner2.jpg)">
+    <header class="site-header size-lg text-center" style="background-image: url({{url('/')}}/frontend/assets/img/bg-banner1.jpg)">
       <div class="container no-shadow">
         <h1 class="text-center">Về chúng tôi</h1>
         <p class="lead text-center">Giới thiệu chung về website tuyển dụng của chúng tôi!</p>

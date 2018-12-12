@@ -87,7 +87,7 @@
       </div>
 
       <div class="login-links">
-        <p class="text-center">Bạn đã có tài khoản? <a class="txt-brand" href="user-login.html">Đăng nhập</a></p>
+        <p class="text-center">Bạn đã có tài khoản? <a class="txt-brand" href="/login">Đăng nhập</a></p>
       </div>
 
     </main>
