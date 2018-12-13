@@ -66,7 +66,7 @@
             <?php  $i++; }?>
 
 
-
+            <input type="hidden"  name="categories" id="categories" >
 
 
         <div class="button-group">
@@ -95,7 +95,7 @@
               <p>Vui lòng kiểm tra lại thông tin một lần nữa trước khi nhấn đăng tin.</p>
             </header>
 
-            <p class="text-center"><button type="submit" class="btn btn-success btn-xl btn-round">Đăng tin</button></p>
+            <p class="text-center"><button id="btnSubmit" type="submit" class="btn btn-success btn-xl btn-round">Đăng tin</button></p>
 
           </div>
         </section>

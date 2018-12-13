@@ -125,8 +125,9 @@ class PostController extends BaseController
     }
     public function searchPosts(Request $request) {
       $Post = new Post();
-      $searchItem = $request->search;
-      $listPosts =  $Post->dbSearchPosts($searchItem, 10, 'created_at', 'DESC');
+      $searchItem = $request->search;$select=['id','company','title','content','address', 'salary','description','created_at'];
+
+      $listPosts =  $Post->dbSearchPosts($searchItem, $select, 10, 'created_at', 'DESC');
       return view('frontend/posts/search', compact('listPosts'));  
       
     }

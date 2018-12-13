@@ -13,6 +13,7 @@ class Category extends Model
     public function dbCreateCategory($data) {
         return DB::table('categories')->insertGetId($data);
     } 
+    
     public function dbEditCategory($select, $id) {
         return DB::table('categories')->select($select)->where('id', $id)->get();
     }
