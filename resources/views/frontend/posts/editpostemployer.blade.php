@@ -9,9 +9,10 @@
       </div>
 
       <div class="container">
-      <form action="/postemployer" method="POST" enctype="multipart/form-data" class="form-horizontal" id="formData">
-                    {{ csrf_field() }}
+      
         <div class="row">
+        <form action="/postemployer" method="POST" enctype="multipart/form-data" class="form-horizontal" id="formData">
+                    {{ csrf_field() }}
           <div class="form-group col-xs-12 col-sm-6">
             <input type="text" name="title" class="form-control input-lg" placeholder="Tiêu đề tuyển dụng" required>
           </div>
@@ -21,7 +22,10 @@
           </div>
 
           <div class="form-group col-xs-12">
-            <textarea class="form-control" name="content" rows="3" placeholder="Nội dung công việc của bạn" required></textarea>
+            <textarea class="form-control" name="content" rows="1" placeholder="Nội dung công việc của bạn" required></textarea>
+          </div>
+          <div class="form-group col-xs-12">
+            <textarea class="form-control" name="description" rows="3" placeholder="Mô tả công việc" required></textarea>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">

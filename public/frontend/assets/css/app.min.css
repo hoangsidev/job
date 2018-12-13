@@ -1583,7 +1583,7 @@ pre code {
 	width: 58.33333333%
 }
 .col-sm-6 {
-	width: 50%
+	width: 50.6%
 }
 .col-sm-5 {
 	width: 41.66666667%
@@ -1747,7 +1747,7 @@ pre code {
 	width: 41.66666667%
 }
 .col-md-4 {
-	width: 33.33333333%
+	width: 34.3%;
 }
 .col-md-3 {
 	width: 25%
@@ -2548,8 +2548,9 @@ select[multiple].input-lg, textarea.input-lg {
 }
 .form-horizontal .form-group {
 	margin-right: -15px;
-	margin-left: -15px
+	margin-top: 20px;
 }
+
 @media (min-width:768px) {
 .form-horizontal .control-label {
 	padding-top: 7px;

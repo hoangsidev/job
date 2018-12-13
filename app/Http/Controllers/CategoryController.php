@@ -50,10 +50,11 @@ class CategoryController extends BaseController
       
       $id =$request->id;
       $select = ['id','title', 'description'];
-      $categoryInfor =$Category->dbEditCategory($select,$id);
+      $categoryInfo = $Category->dbEditCategory($select, $id);
+      
       $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
       
-      return view('backend/categories/edit', compact('categoryInfor', 'listTaxonomies')); 
+      return view('backend/categories/edit', compact('categoryInfo', 'listTaxonomies')); 
     }
 
     public function updateCategory(Request $request) {

@@ -100,6 +100,7 @@ Route::get('/postemployer', function () {
 });
 Route::get('/postemployer', 'PostController@formCreatePostEmployer');
 Route::post('/postemployer', 'PostController@createPostEmployer');
+
 //End postEmployer
 
 Route::get('/newspaper', function () {

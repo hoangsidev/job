@@ -66,8 +66,8 @@
       <!-- Job detail -->
       <section>
         <div class="container">
-
-          <?php  echo $detailPost[0]->content; ?>
+        <h3>Mô tả công việc:</h3>
+          <?php  echo $detailPost[0]->description; ?>
 
         </div>
       </section>

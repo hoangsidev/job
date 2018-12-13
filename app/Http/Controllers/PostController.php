@@ -68,13 +68,10 @@ class PostController extends BaseController
       $Taxonomy = new Taxonomy();
       $Category = new Category();
       $Relationship = new Relationship();
-
       $id =$request->id; 
       $select = ['id','title', 'content'];
       $postInfo = $Post->dbEditPost($select, $id);
-
       $categoriesOfPost = $Relationship->dbGetCategoriesOfPostByPostId($postInfo[0]->id);
-
       $catOfPost = array();
       foreach($categoriesOfPost as $cat) {
         array_push($catOfPost, $cat->category_id);
@@ -87,7 +84,6 @@ class PostController extends BaseController
         $taxonomy->categories = $listCategories;
         array_push($resultTaxonomiesCategories, $taxonomy);
       }
-
       return view('backend/posts/edit', compact('postInfo', 'resultTaxonomiesCategories', 'catOfPost'));    
     }
 
@@ -137,7 +133,7 @@ class PostController extends BaseController
     public function detailPosts(Request $request) {
       $Post = new Post();
       $id =$request->id;
-      $select=['id','company','title','content','address', 'salary','created_at'];
+      $select=['id','company','title','content','address', 'salary','description','created_at'];
       $detailPost =  $Post->dbDetailPosts($select,$id);
       return view('frontend/posts/detail', compact('detailPost'));       
     }
@@ -165,6 +161,7 @@ class PostController extends BaseController
       $content = $request->content;
       $address = $request->address;
       $salary = $request->salary;
+      $description = $request->description;
       $categories = $request->categories;
       $data = array();
       $data['title'] = $title;
@@ -172,6 +169,7 @@ class PostController extends BaseController
       $data['content'] = $content;
       $data['address'] = $address;
       $data['salary'] = $salary;
+      $data['description'] = $description;
       $postId = $Post->dbCreatePost($data);
 
 
@@ -186,5 +184,6 @@ class PostController extends BaseController
       }
       return redirect('/postemployer/'.$postId.'/edit');
     }
-
+    
+    
 }

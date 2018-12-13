@@ -14,7 +14,7 @@
               <!-- form -->
               <div class="card basic-form">
                   <div class="card-body card-block"> 
-                  <form action="/admin/categories/<?php  echo $categoryInfor[0]->id; ?>/update" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                  <form action="/admin/categories/<?php  echo $categoryInfo[0]->id; ?>/update" method="POST" enctype="multipart/form-data" class="form-horizontal">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="PUT">
                       <div class="row form-group">
