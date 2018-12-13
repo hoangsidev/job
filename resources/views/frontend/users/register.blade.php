@@ -28,7 +28,7 @@
     <main>
 
       <div class="login-block">
-        <img src="{{url('/')}}/frontend/assets/img/logo.png" alt="">
+        <a href="/"><img src="{{url('/')}}/frontend/assets/img/logo.png" alt=""></a>
         <h1>Mời nhập thông tin tài khoản</h1>
 
         <form action="/register" method="post">
@@ -74,14 +74,14 @@
 
           <button class="btn btn-primary btn-block" type="submit">Đăng ký</button>
 
-          <div class="login-footer">
+          <!-- <div class="login-footer">
             <h6>Đăng ký với</h6>
             <ul class="social-icons">
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
             </ul>
-          </div>
+          </div> -->
 
         </form>
       </div>

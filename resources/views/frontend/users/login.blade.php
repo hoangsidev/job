@@ -28,7 +28,7 @@
     <main>
 
       <div class="login-block">
-        <img src="{{url('/')}}/frontend/assets/img/logo.png" alt="">
+        <a href="/"><img src="{{url('/')}}/frontend/assets/img/logo.png" alt=""></a>
         <h1>Đăng nhập</h1>
 
           <span style="color:red;"><?php echo $error;  ?></span>
@@ -52,20 +52,20 @@
 
           <button class="btn btn-primary btn-block" type="submit">Đăng nhập</button>
 
-          <div class="login-footer">
+          <!-- <div class="login-footer">
             <h6>Đăng nhập với</h6>
             <ul class="social-icons">
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
             </ul>
-          </div>
+          </div> -->
 
         </form>
       </div>
 
       <div class="login-links">
-        <a class="pull-left" href="user-forget-pass.html">Quên mật khẩu?</a>
+        <a class="pull-left" href="#">Quên mật khẩu?</a>
         <a class="pull-right" href="/register">Tạo tài khoản</a>
       </div>
 

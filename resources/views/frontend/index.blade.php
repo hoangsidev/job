@@ -123,7 +123,7 @@
             
             
             <br><br>
-            <a class="btn btn-primary" href="page-typography.html">Xem thêm</a>
+            <a class="btn btn-primary" href="/newspaper">Xem thêm</a>
           </div>
 
           <div class="col-sm-12 col-md-6 hidden-xs hidden-sm">

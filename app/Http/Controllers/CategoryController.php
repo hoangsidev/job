@@ -42,13 +42,18 @@ class CategoryController extends BaseController
       $Category->dbCreateCategory($data);
       return redirect('/admin/categories?orderBy=created_at&order=DESC');
     }
+
+    
     public function editCategory(Request $request) {
-      $Category = new Category(); // khởi tạo model
+      $Taxonomy = new Taxonomy();
+      $Category = new Category();
+      
       $id =$request->id;
-      $taxonomy_id =$request->taxonomy_id;
-      $select = ['id','title', 'description','taxonomy_id'];
-      $categoryInfo = $Category->dbEditCategory($select, $id);
-      return view('backend/categories/edit', compact('categoryInfo'));    
+      $select = ['id','title', 'description'];
+      $categoryInfor =$Category->dbEditCategory($select,$id);
+      $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
+      
+      return view('backend/categories/edit', compact('categoryInfor', 'listTaxonomies')); 
     }
 
     public function updateCategory(Request $request) {

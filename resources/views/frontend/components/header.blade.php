@@ -56,9 +56,7 @@
           <li>
             <a href="/search">Tất cả việc làm</a>
           </li>
-          <li>
-            <a href="#">Bài viết</a>
-          </li>
+          
           <li>
             <a href="/introduce">Giới thiệu</a>
           </li>

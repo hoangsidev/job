@@ -74,7 +74,7 @@ Route::get('/information', function () {
     return view('frontend/users/information');
 });
 Route::get('/information/{id}', 'UserController@informationUser');
-//Route::put('/information/{id}/update', 'UserController@updateInformation');
+Route::put('/information/{id}/update', 'UserController@updateInformation');
 //End information
 
 Route::get('/search', function () {
@@ -101,4 +101,9 @@ Route::get('/postemployer', function () {
 Route::get('/postemployer', 'PostController@formCreatePostEmployer');
 Route::post('/postemployer', 'PostController@createPostEmployer');
 //End postEmployer
+
+Route::get('/newspaper', function () {
+    return view('frontend/posts/newspaper');
+});
+//End newspaper
 // End Frontend

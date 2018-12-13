@@ -20,7 +20,7 @@
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Xu hướng công việc</h6>
+            <h6>Công cụ</h6>
             <ul class="footer-links">
               <li><a href="job-list.html">Front-end developer</a></li>
               <li><a href="job-list.html">Android developer</a></li>

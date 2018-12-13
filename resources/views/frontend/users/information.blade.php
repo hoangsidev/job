@@ -25,7 +25,7 @@
   <body class="login-page">
     <main>
       <div class="login-block">
-        <img src="{{url('/')}}/frontend/assets/img/logo.png" alt="">
+        <a href="/"><img src="{{url('/')}}/frontend/assets/img/logo.png" alt=""></a>
         <h1>Thông tin người dùng</h1>
 
       <form action="/information/<?php  echo $information[0]->id; ?>/update" method="post" class="example-form">
