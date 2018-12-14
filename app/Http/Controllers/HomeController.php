@@ -18,8 +18,10 @@ class HomeController extends BaseController
 
     
       $listPosts =  $Post->dbGetPosts(['id','company','title', 'salary','created_at'], 5, 'created_at', 'DESC');
-      return view('frontend/index', compact('listPosts'));       
-    }
 
+      $listCategories =  $Category->dbGetCategoriesForHome(['id','title','description','taxonomy_id','created_at'], 6, 'created_at', 'DESC');
+      return view('frontend/index', compact('listPosts','listCategories'));       
+    }
+    
     
 }

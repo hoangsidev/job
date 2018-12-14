@@ -123,6 +123,7 @@ class PostController extends BaseController
       $Post->dbDeletePost($id);
       return redirect('/admin/posts?orderBy=created_at&order=DESC');
     }
+    //End backend
     public function searchPosts(Request $request) {
       $Post = new Post();
       $searchItem = $request->search;$select=['id','company','title','content','address', 'salary','description','created_at'];

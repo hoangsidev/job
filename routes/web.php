@@ -93,13 +93,15 @@ Route::get('/introduce', function () {
     return view('frontend/introduce');
 });
 //End Introduce
-Route::get('/', 'HomeController@index');
+
+
+
 
 Route::get('/postemployer', function () {
-    return view('frontend/posts/postemployer');
+    return view('frontend/posts/postEmployer');
 });
-Route::get('/postemployer', 'PostController@formCreatePostEmployer');
-Route::post('/postemployer', 'PostController@createPostEmployer');
+Route::get('/postEmployer', 'PostController@formCreatePostEmployer');
+Route::post('/postEmployer', 'PostController@createPostEmployer');
 
 //End postEmployer
 
@@ -108,3 +110,7 @@ Route::get('/newspaper', function () {
 });
 //End newspaper
 // End Frontend
+
+
+Route::get('/', 'HomeController@index');
+//Home

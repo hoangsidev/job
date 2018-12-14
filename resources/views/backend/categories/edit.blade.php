@@ -31,8 +31,9 @@
                         <div class="col col-md-3"><label for="select" class=" form-control-label">Phân loại chuyên mục</label></div>
                         <div class="col-12 col-md-9">
                           <select name="taxonomy_id" id="select" class="form-control" required>
-                            <option value="">Vui lòng phân loại chuyên mục</option>
-                            <?php foreach($listTaxonomies as $taxonomy) { ?>
+                          <option value="">Vui lòng phân loại chuyên mục</option>
+                          <?php foreach($listTaxonomies as $taxonomy) { ?>
+                            
                             <option value="<?php  echo $taxonomy->id; ?>"><?php  echo $taxonomy->title; ?></option> 
                             <?php }?>
 

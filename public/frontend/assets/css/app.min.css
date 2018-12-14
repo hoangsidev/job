@@ -10536,7 +10536,8 @@ form .text-muted {
 	border-bottom-right-radius: 36px
 }
 .header-job-search {
-	margin-top: 50px
+	margin-top: 50px;
+	margin-bottom: 150px;
 }
 .header-job-search .btn-search, .header-job-search .input-keyword, .header-job-search .input-location {
 	display: inline-block;
@@ -10546,6 +10547,7 @@ form .text-muted {
 	position: relative;
 	width: 80%
 }
+
 .header-job-search .input-keyword:before, .header-job-search .input-location:before {
 	position: absolute;
 	top: 0;
@@ -10988,9 +10990,9 @@ h6 {
 .category-grid a {
 	display: inline-block;
 	float: left;
-	width: 31%;
+	width: 30%;
 	padding: 30px 20px;
-	margin-right: 3.5%;
+	margin-right: 3.3%;
 	margin-bottom: 3.5%;
 	text-align: center;
 	border: 1px solid #eee;

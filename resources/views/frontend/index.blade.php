@@ -13,14 +13,9 @@
             <div class="input-keyword">
               <input type="text" name="search" class="form-control" placeholder="Tên công việc, vị trí, kỹ năng,..." required>
             </div>
-
-            <!-- <div class="input-location">
-              <input type="text" class="form-control" placeholder="Chọn thành phố">
-            </div> -->
-
             <div class="btn-search">
               <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-              <!-- <a href="job-list.html">Advanced Job Search</a> -->
+              
             </div>
           </form>
         </div>
@@ -145,44 +140,20 @@
             <p>Đây là những danh mục phổ biến nhất</p>
           </header>
 
+
+          <?php foreach($listCategories as $category) { ?>
+
+
           <div class="category-grid">
-            <a href="job-list-1.html">
+            <a href="/search?search=<?php echo $category->title; ?>">
               <i class="fa fa-laptop"></i>
-              <h6>Technology</h6>
-              <p>Designer, Developer, IT Service, Front-end developer, Project management</p>
+              <h6><?php echo $category->title; ?></h6>
+              <p><?php echo $category->description; ?></p>
             </a>
 
-            <a href="job-list-2.html">
-              <i class="fa fa-line-chart"></i>
-              <h6>Accounting</h6>
-              <p>Finance, Tax service, Payroll manager, Book keeper, Human resource</p>
-            </a>
+            <?php }?>
 
-            <a href="job-list-3.html">
-              <i class="fa fa-medkit"></i>
-              <h6>Medical</h6>
-              <p>Doctor, Nurse, Hospotal, Dental service, Massagist</p>
-            </a>
-
-            <a href="job-list-1.html">
-              <i class="fa fa-cutlery"></i>
-              <h6>Food</h6>
-              <p>Restaurant, Food service, Coffe shop, Cashier, Waitress</p>
-            </a>
-
-            <a href="job-list-2.html">
-              <i class="fa fa-newspaper-o"></i>
-              <h6>Media</h6>
-              <p>Journalism, Newspaper, Reporter, Writer, Cameraman</p>
-            </a>
-
-            <a href="job-list-3.html">
-              <i class="fa fa-institution"></i>
-              <h6>Government</h6>
-              <p>Federal, Law, Human resource, Manager, Biologist</p>
-            </a> 
-          </div>
-
+            
         </div>
       </section>
       <!-- END Categories -->

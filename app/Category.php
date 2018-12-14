@@ -28,6 +28,10 @@ class Category extends Model
 
     public function dbGetCategoriesByTaxonomyId($taxonomy_id, $select, $limit, $orderBy, $order) {
         return DB::table('categories')->select($select)->where('taxonomy_id', $taxonomy_id)->orderBy($orderBy, $order)->paginate($limit);
-      }
+    }
   
+    public function dbGetCategoriesForHome($select, $limit, $orderBy, $order) {
+        return DB::table('categories')->select($select)->where('taxonomy_id', 1)->orderBy($orderBy, $order)->paginate($limit);
+        
+    } 
 }

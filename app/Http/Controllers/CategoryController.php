@@ -49,7 +49,7 @@ class CategoryController extends BaseController
       $Category = new Category();
       
       $id =$request->id;
-      $select = ['id','title', 'description'];
+      $select = ['id','title', 'description','taxonomy_id'];
       $categoryInfo = $Category->dbEditCategory($select, $id);
       
       $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
@@ -62,9 +62,11 @@ class CategoryController extends BaseController
       $id =$request->id;
       $title =$request->title;
       $description =$request->description;
+      $taxonomy_id=$request->taxonomy_id;
       $data = array();
       $data['title'] = $title;
       $data['description'] = $description;
+      $data['taxonomy_id'] = $taxonomy_id;
       $Category->dbUpdateCategory($id, $data);
       return redirect('/admin/categories/'.$id.'/edit');
     }

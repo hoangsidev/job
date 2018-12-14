@@ -3,6 +3,15 @@
     <!-- Page header -->
     <header class="page-header bg-img" style="background-image: url({{url('/')}}/frontend/assets/img/bg-banner1.jpg);">
       <div class="container page-name">
+      <form action="/search" method="GET" class="header-job-search">
+            <div class="input-keyword">
+              <input type="text" name="search" class="form-control" placeholder="Tên công việc, vị trí, kỹ năng,..." required>
+            </div>
+            <div class="btn-search">
+              <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+              
+            </div>
+          </form>
         <h1 class="text-center">Kết quả tìm kiếm</h1>
         <p class="lead text-center">Đây là những công việc mới nhất phù hợp với nhu cầu tìm kiếm của bạn!</p>
       </div>
