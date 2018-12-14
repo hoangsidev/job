@@ -97,7 +97,7 @@ Route::get('/introduce', function () {
 
 
 
-Route::get('/postemployer', function () {
+Route::get('/postEmployer', function () {
     return view('frontend/posts/postEmployer');
 });
 Route::get('/postEmployer', 'PostController@formCreatePostEmployer');

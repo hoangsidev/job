@@ -42,7 +42,7 @@
 
   <header class="top-header media">
     <div class="top-left mr-3">
-      <a class="navbar-brand" href="../index.html"><img src="{{url('/')}}/images/logo.png" alt="Site Logo"></a><!-- /.navbar-brand -->
+      <a class="navbar-brand" href="/admin"><img src="{{url('/')}}/images/logo.png" alt="Site Logo"></a><!-- /.navbar-brand -->
     </div><!-- /.top-left -->
     
     <div class="top-right media-body">

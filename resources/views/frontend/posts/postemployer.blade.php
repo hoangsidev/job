@@ -11,7 +11,7 @@
       <div class="container">
       
         <div class="row">
-        <form action="/postemployer" method="POST" enctype="multipart/form-data" class="form-horizontal" id="formData">
+        <form action="/postEmployer" method="POST" enctype="multipart/form-data" class="form-horizontal" id="formData">
                     {{ csrf_field() }}
           <div class="form-group col-xs-12 col-sm-6">
             <input type="text" name="title" class="form-control input-lg" placeholder="Tiêu đề tuyển dụng" required>

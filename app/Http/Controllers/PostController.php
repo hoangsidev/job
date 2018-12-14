@@ -152,7 +152,7 @@ class PostController extends BaseController
         array_push($resultTaxonomiesCategories, $taxonomy);
       }
 
-      return view('/frontend/posts/postemployer', compact('resultTaxonomiesCategories'));  
+      return view('/frontend/posts/postEmployer', compact('resultTaxonomiesCategories'));  
     }
 
     public function createPostEmployer(Request $request) {
@@ -184,7 +184,7 @@ class PostController extends BaseController
           $Relationship->dbCreateRelationship($dataRelationship);
         }
       }
-      return redirect('/postemployer/'.$postId.'/edit');
+      return redirect('/postEmployer/'.$postId.'/edit');
     }
     
     

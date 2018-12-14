@@ -61,7 +61,7 @@
             <a href="/introduce">Giới thiệu</a>
           </li>
           <li>
-            <a href="/postemployer">Đăng tin nhà tuyển dụng</a>
+            <a href="/postEmployer">Đăng tin nhà tuyển dụng</a>
           </li>
           
         </ul>
