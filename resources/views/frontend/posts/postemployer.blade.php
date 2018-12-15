@@ -72,8 +72,8 @@
         <div class="button-group">
           <div class="action-buttons">
             <div class="upload-button">
-              <button class="btn btn-block btn-primary">Chọn hình công ty của bạn</button>
-              <input id="cover_img_file" type="file">
+              <button id="btnSubmit" type="submit" class="btn btn-block btn-primary">Đăng tin</button>
+              
             </div>
           </div>
         </div>
@@ -83,26 +83,9 @@
     <!-- END Page header -->
 
 
-    <!-- Main container -->
-    <main>
-
-        <!-- Submit -->
-        <section class="bg-alt">
-          <div class="container">
-            <header class="section-header">
-              <span>Bạn đã điền đầy đủ thông tin?</span>
-              <h2>Đăng tin</h2>
-              <p>Vui lòng kiểm tra lại thông tin một lần nữa trước khi nhấn đăng tin.</p>
-            </header>
-
-            <p class="text-center"><button id="btnSubmit" type="submit" class="btn btn-success btn-xl btn-round">Đăng tin</button></p>
-
-          </div>
-        </section>
-        <!-- END Submit -->
+    
         </form>
 
-    </main>
-    <!-- END Main container -->
+    
 
     @include('frontend.components.footer')

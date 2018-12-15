@@ -54,7 +54,7 @@
             <a class="active" href="/">Trang chủ</a>
           </li>
           <li>
-            <a href="/search">Tất cả việc làm</a>
+            <a href="/search">Việc làm nổi bật</a>
           </li>
           
           <li>

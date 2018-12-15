@@ -34,7 +34,7 @@
                           <option value="">Vui lòng phân loại chuyên mục</option>
                           <?php foreach($listTaxonomies as $taxonomy) { ?>
                             
-                            <option value="<?php  echo $taxonomy->id; ?>"><?php  echo $taxonomy->title; ?></option> 
+                            <option value="<?php  echo $taxonomy->id; ?>" <?php if($taxonomy->id==$categoryInfo[0]->taxonomy_id){echo 'selected';}?>><?php  echo $taxonomy->title; ?></option> 
                             <?php }?>
 
                           </select>
