@@ -210,5 +210,47 @@ class PostController extends BaseController
       return view('frontend/posts/editPostEmployer', compact('postInfo', 'resultTaxonomiesCategories', 'catOfPost'));
       
     }
+    public function updatePostEmployer(Request $request) {
+      $Post = new Post(); // khởi tạo model
+      $Relationship = new Relationship();
+      $id = $request-> id;
+      $title = $request->title;
+      $company = $request->company;
+      $content = $request->content;
+      $address = $request->address;
+      $salary = $request->salary;
+      $description = $request->description;
+      $categories = $request->categories;
+      $data = array();
+      $data['title'] = $title;
+      $data['company'] = $company;
+      $data['content'] = $content;
+      $data['address'] = $address;
+      $data['salary'] = $salary;
+      $data['description'] = $description;
+      $postId =  $Post->dbUpdatePost($id, $data);
+
+      $Relationship->dbDeleteRelationship($id);
+      $categories = $request->categories;
+      $arrCategories = explode(",",$categories);
+      foreach($arrCategories as $categoryId) {
+        
+        if($categoryId!='') {
+          $dataRelationship = array();
+          $dataRelationship['post_id'] = $id;
+          $dataRelationship['category_id'] = $categoryId;
+          $Relationship->dbCreateRelationship($dataRelationship);
+        }
+      }
+
+
+      return redirect('/postEmployer/'.$id.'/edit');
+    }
+    public function deletePostEmployer(Request $request) {
+      $Post = new Post(); // khởi tạo model
+      $id =$request->id;
+      $Post->dbDeletePost($id);
+      return redirect('/');
+    }
     
 }

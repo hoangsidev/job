@@ -103,6 +103,8 @@ Route::get('/postEmployer', function () {
 Route::get('/postEmployer', 'PostController@formCreatePostEmployer');
 Route::post('/postEmployer', 'PostController@createPostEmployer');
 Route::get('/postEmployer/{id}/edit', 'PostController@editPostEmployer');
+Route::put('/postEmployer/{id}/update', 'PostController@updatePostEmployer');
+Route::delete('/postEmployer/{id}/delete', 'PostController@deletePostEmployer');
 //End postEmployer
 
 Route::get('/newspaper', function () {

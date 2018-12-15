@@ -42,17 +42,14 @@
 
   <header class="top-header media">
     <div class="top-left mr-3">
-      <a class="navbar-brand" href="/admin"><img src="{{url('/')}}/images/logo.png" alt="Site Logo"></a><!-- /.navbar-brand -->
+      <a class="navbar-brand" href="/"><img src="{{url('/')}}/images/logo.png" alt="Site Logo"></a><!-- /.navbar-brand -->
     </div><!-- /.top-left -->
     
     <div class="top-right media-body">
       <div class="left-content float-left">
         <button class="sidenav-toggle mr-2"><i class="fa fa-bars"></i></button><!-- /.sidenav-toggle -->
 
-        <form class="search-form" action="#">
-          <input type="text" class="form-control" id="search1" placeholder="Search ...">
-          <input type="submit" class="form-control" id="submit1">
-        </form><!-- /.search-form -->
+        
       </div><!-- /.left-content -->
 
       <div class="right-content float-right">

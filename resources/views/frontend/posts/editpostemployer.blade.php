@@ -4,14 +4,14 @@
     <!-- Page header -->
     <header class="page-header">
       <div class="container page-name">
-        <h1 class="text-center">Thêm tin tuyển dụng mới</h1>
-        <p class="lead text-center">Tạo một vị trí cần tuyển dụng mới.</p>
+        <h1 class="text-center">Chỉnh sửa thông tin tuyển dụng</h1>
+        <p class="lead text-center"></p>
       </div>
 
       <div class="container">
       
         <div class="row">
-        <form action="/postemployer/<?php  echo $postInfo[0]->id; ?>/update" method="POST" enctype="multipart/form-data" class="form-horizontal" id="formData">
+        <form action="/postEmployer/<?php  echo $postInfo[0]->id; ?>/update" method="POST" enctype="multipart/form-data" class="form-horizontal" id="formData">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="PUT">
           <div class="form-group col-xs-12 col-sm-6">
@@ -23,10 +23,10 @@
           </div>
 
           <div class="form-group col-xs-12">
-            <textarea class="form-control" name="content" rows="1" placeholder="Nội dung công việc của bạn" value="<?php  echo $postInfo[0]->content; ?>"></textarea>
+            <textarea class="form-control" name="content" rows="1" placeholder="Nội dung công việc của bạn"><?php  echo $postInfo[0]->content; ?></textarea>
           </div>
           <div class="form-group col-xs-12">
-            <textarea class="form-control" name="description" rows="3" placeholder="Mô tả công việc" value="<?php  echo $postInfo[0]->description; ?>"></textarea>
+            <textarea class="form-control" name="description" rows="3" placeholder="Mô tả công việc"><?php  echo $postInfo[0]->description; ?></textarea>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
@@ -56,9 +56,9 @@
                     
                     <?php $categories =  $taxonomyItem->categories; ?>
                     <select id="<?php echo 'cat'.$i; ?>" class="form-control selectpicker" required>
-                        <option selected><?php echo $taxonomyItem->title; ?></option>
+                        
                         <?php foreach($categories as $category) { ?>
-                            <option value="<?php echo $category->id; ?>"><?php echo $category->title; ?></option> 
+                            <option value="<?php echo $category->id; ?>" <?php if(in_array($category->id, $catOfPost)) { echo 'selected'; } ?>><?php echo $category->title; ?></option> 
                                 <?php }?>
                         
                     </select>
@@ -66,17 +66,19 @@
                 </div>
             <?php  $i++; }?>
 
-
+            <input type="hidden"  name="categories" id="categories" >
 
 
 
         <div class="button-group">
           <div class="action-buttons">
             <div class="upload-button">
-              <button class="btn btn-block btn-primary">Chọn hình công ty của bạn</button>
-              <input id="cover_img_file" type="file">
+              <button id="btnSubmit" type="submit" class="btn btn-block btn-primary">Cập nhật</button>
+              
             </div>
           </div>
+
+          
         </div>
 
       </div>
@@ -84,26 +86,6 @@
     <!-- END Page header -->
 
 
-    <!-- Main container -->
-    <main>
-
-        <!-- Submit -->
-        <section class="bg-alt">
-          <div class="container">
-            <header class="section-header">
-              <span>Bạn đã điền đầy đủ thông tin?</span>
-              <h2>Đăng tin</h2>
-              <p>Vui lòng kiểm tra lại thông tin một lần nữa trước khi nhấn đăng tin.</p>
-            </header>
-
-            <p class="text-center"><button type="submit" class="btn btn-success btn-xl btn-round">Đăng tin</button></p>
-
-          </div>
-        </section>
-        <!-- END Submit -->
-        </form>
-
-    </main>
-    <!-- END Main container -->
-
+   
+    </form>
     @include('frontend.components.footer')

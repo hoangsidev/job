@@ -1,13 +1,5 @@
 <aside class="left-panel">
-      <div class="user-card background-bg" data-image-src="{{url('/')}}/images/bg5.jpg">
-        <a href="#">
-          <div class="avatar mr-3 float-left"><img class="rounded-circle" src="{{url('/')}}/images/avatar/4.jpg" alt="Avatar"></div><!-- /.avatar -->
-          <div class="details">
-            <h4 class="name">Bobby Payne</h4><!-- /.name -->
-            <span class="designation">Designer</span><!-- /.designation -->
-          </div><!-- /.details -->
-        </a>
-      </div>
+      
       <nav class="navbar">
         <ul class="navbar-nav">
 
