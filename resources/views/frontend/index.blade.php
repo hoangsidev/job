@@ -145,7 +145,7 @@
 
 
           <div class="category-grid">
-            <a href="/search?search=<?php echo $category->title; ?>">
+            <a href="/hotCategories/<?php echo $category->id; ?>">
               <i class="fa fa-laptop"></i>
               <h6><?php echo $category->title; ?></h6>
               <p><?php echo $category->description; ?></p>

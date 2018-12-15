@@ -11,34 +11,35 @@
       <div class="container">
       
         <div class="row">
-        <form action="/postemployer" method="POST" enctype="multipart/form-data" class="form-horizontal" id="formData">
+        <form action="/postemployer/<?php  echo $postInfo[0]->id; ?>/update" method="POST" enctype="multipart/form-data" class="form-horizontal" id="formData">
                     {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="PUT">
           <div class="form-group col-xs-12 col-sm-6">
-            <input type="text" name="title" class="form-control input-lg" placeholder="Tiêu đề tuyển dụng" required>
+            <input type="text" name="title" class="form-control input-lg" placeholder="Tiêu đề tuyển dụng" value="<?php  echo $postInfo[0]->title; ?>">
           </div>
 
           <div class="form-group col-xs-12 col-sm-6">
-            <input type="text" name="company" class="form-control input-lg" placeholder="Tên công ty của bạn" required>
+            <input type="text" name="company" class="form-control input-lg" placeholder="Tên công ty của bạn" value="<?php  echo $postInfo[0]->company; ?>">
           </div>
 
           <div class="form-group col-xs-12">
-            <textarea class="form-control" name="content" rows="1" placeholder="Nội dung công việc của bạn" required></textarea>
+            <textarea class="form-control" name="content" rows="1" placeholder="Nội dung công việc của bạn" value="<?php  echo $postInfo[0]->content; ?>"></textarea>
           </div>
           <div class="form-group col-xs-12">
-            <textarea class="form-control" name="description" rows="3" placeholder="Mô tả công việc" required></textarea>
+            <textarea class="form-control" name="description" rows="3" placeholder="Mô tả công việc" value="<?php  echo $postInfo[0]->description; ?>"></textarea>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-              <input type="text" name="address" class="form-control" placeholder="Địa chỉ, nơi làm việc" required>
+              <input type="text" name="address" class="form-control" placeholder="Địa chỉ, nơi làm việc" value="<?php  echo $postInfo[0]->address; ?>">
             </div>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-money"></i></span>
-              <input type="text" name="salary" class="form-control" placeholder="Lương" required>
+              <input type="text" name="salary" class="form-control" placeholder="Lương" value="<?php  echo $postInfo[0]->salary; ?>">
             </div>
           </div>
          

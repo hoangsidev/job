@@ -36,4 +36,9 @@ class Post extends Model
         
     }
     
+
+    public function dbGetPostsByArrId($listRelationship, $select,  $orderBy, $order) {
+        return DB::table('posts')->select($select)->whereIn('id', $listRelationship)->orderBy($orderBy, $order)->get();
+        
+    }
 }

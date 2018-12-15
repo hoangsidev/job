@@ -19,5 +19,11 @@ class Relationship extends Model
         return DB::table('relationships')->where('post_id', $postId)->delete();
     } 
 
+    public function dbGetPostOfCategoriesByCategoryId($categoryID) {
+        return DB::table('relationships')->select(['post_id'])->where('category_id', $categoryID)->get();
+    } 
+
+    
+
   
 }

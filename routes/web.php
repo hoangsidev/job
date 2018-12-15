@@ -102,7 +102,7 @@ Route::get('/postEmployer', function () {
 });
 Route::get('/postEmployer', 'PostController@formCreatePostEmployer');
 Route::post('/postEmployer', 'PostController@createPostEmployer');
-
+Route::get('/postEmployer/{id}/edit', 'PostController@editPostEmployer');
 //End postEmployer
 
 Route::get('/newspaper', function () {
@@ -113,4 +113,8 @@ Route::get('/newspaper', function () {
 
 
 Route::get('/', 'HomeController@index');
+Route::get('/hotCategories', function () {
+    return view('/frontend/posts/hotCategories');
+});
+Route::get('/hotCategories/{id}', 'HomeController@hotCategories');
 //Home

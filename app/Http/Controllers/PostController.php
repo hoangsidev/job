@@ -186,6 +186,29 @@ class PostController extends BaseController
       }
       return redirect('/postEmployer/'.$postId.'/edit');
     }
-    
+    public function editPostEmployer(Request $request) {
+      $Post = new Post(); // khởi tạo model
+      $Taxonomy = new Taxonomy();
+      $Category = new Category();
+      $Relationship = new Relationship();
+      $id =$request->id; 
+      $select = ['id','title','company','content','address','salary','description'];
+      $postInfo = $Post->dbEditPost($select, $id);
+      $categoriesOfPost = $Relationship->dbGetCategoriesOfPostByPostId($postInfo[0]->id);
+      $catOfPost = array();
+      foreach($categoriesOfPost as $cat) {
+        array_push($catOfPost, $cat->category_id);
+      }
+     
+      $resultTaxonomiesCategories = array();
+      $listTaxonomies =  $Taxonomy->dbGetTaxonomies(['id', 'title'], '1000', 'title', 'DESC');
+      foreach($listTaxonomies as $taxonomy) {
+        $listCategories =  $Category->dbGetCategoriesByTaxonomyId($taxonomy->id, ['id', 'title'], '1000', 'title', 'DESC');  
+        $taxonomy->categories = $listCategories;
+        array_push($resultTaxonomiesCategories, $taxonomy);
+      }
+      return view('frontend/posts/editPostEmployer', compact('postInfo', 'resultTaxonomiesCategories', 'catOfPost'));
+      
+    }
     
 }
