@@ -56,12 +56,6 @@
       </div><!-- /.left-content -->
 
       <div class="right-content float-right">
-       
-
-    
-
-        
-
         <div class="dropdown user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="{{url('/')}}/images/avatar/1.jpg" class="rounded-circle float-left mr-2" alt="User Image">
