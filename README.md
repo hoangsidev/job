@@ -88,4 +88,4 @@ And then Write test cover for function ^^
 
 Goodluck!
 
-### Known issue: the link will invalidate when you install new package in consumer, simply run the link command again
+### Note: when use, please reinstall package when have any update function
